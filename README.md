@@ -1,6 +1,6 @@
 # C++ 
 
-# 1.OUTPUT
+# 1. OUTPUT
 `std::cout << “tên cần hiển thị” << std::endl;`
 
 **Ex:**
