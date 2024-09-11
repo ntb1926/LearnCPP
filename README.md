@@ -663,9 +663,111 @@ int main () {
 ```
 2.
 ```c++
+#include <iostream>
+using namespace std;
 
+int main () {
+   int thoitiet;
+   bool sunny = false;
+   cout << "Thời tiết chỗ bạn bây giờ: ";
+   cin >> thoitiet;
 
+   if(thoitiet <= 0 || thoitiet >= 30 ){
+     cout << "Thời tiết rất xấu!\n";
+   }
+   else{
+     cout << "Thời tiết rất đẹp!\n";
+   }
 
+   if(!sunny){
+      cout << "Ngoài trời rất nhiều mây";
+   }
+   else{
+      cout << "Ngoài trời rất nắng";
+   }
+   return 0;
+}
+```
 
+**Practice**:Tạo chương trình chuyển đổi nhiệt độ từ độ F sang độ C hoặc độ C đến độ F
+```c++
+#include <iostream>
+using namespace std;
+
+int main (){
+    double temp;
+    char unit;
+
+    cout << "*******Temperature Conversion******\n";
+
+    cout << "Bạn muốn chuyển nhiệt độ nào (C or F) ?";
+    cin >> unit;
+
+    if(unit == 'F' || unit == 'f' ){
+        cout << "Nhập nhiệt độ bạn muốn chuyển";
+        cin >> temp;
+
+        temp = (temp * 1.8) + 32;
+        cout << "Nhiệt độ là: " << temp << " C\n";
+    }
+    else if (unit == 'C' || unit == 'c' ){
+        cout << "Nhập nhiệt độ bạn muốn chuyển";
+        cin >> temp;
+
+        temp = (temp - 32) / 1.8;
+        cout << "Nhiệt độ là: " << temp << " F\n";
+    }
+    else{
+        cout << "Bạn chỉ nhập C hoặc F\n";
+    }
+    
+    cout << "***********************************\n";
+
+    return 0;
+}
+```
+# 11.Useful string methods
+| Function | Description |
+| :--- | :--- |
+| length() | Returns the length of a string | 
+| empty() | Checks wheter a string is empty or not  | 
+| clear() | Erases the contents of the string | 
+| append()| Appends a string to another string |
+| at() | Returns an indexed character from a string |
+| insert()|	Inserts a string at a specified index |
+| find()| Returns the index (position) of the first occurrence of a string or character |
+| erase()| Removes characters from a string |
+**Ex**
+```c++
+#include <iostream>
+using namespace std;
+
+int main (){
+   string name;
+   cout << "Nhập tên của bạn: ";
+   getline (cin, name);
+
+   // if(name.length() > 7) {  (Trả về độ dài của một chuỗi)          
+   //   cout << "Tên của bạn quá dài!";
+   // }
+   // else {
+   //  cout << "Welcome " << name;
+   // }
+
+   // if(name.empty()){      (Kiểm tra xem chuỗi rỗng hay không)
+   //   cout << "Bạn chưa nhập tên!";
+   // }
+   // else {
+   //   cout << "Welcome " << name;
+   // }
+
+   // name.clear();        (Xóa chuỗi bạn nhập)
+   // cout << "Welcome " << name;
+
+   // name.erase(0, 6);     (xóa kí tự bắt đầu từ kí tự 0 và kết thúc ở kí tự 6)
+   // cout << name;
+    return 0;
+}
+```
 
 

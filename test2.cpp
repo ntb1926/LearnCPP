@@ -1,24 +1,40 @@
 #include <iostream>
 using namespace std;
 
-int main () {
-   int thoitiet;
-   bool sunny = false;
-   cout << "Thời tiết chỗ bạn bây giờ: ";
-   cin >> thoitiet;
+int main (){
+   string name;
+   cout << "Nhập tên của bạn: ";
+   getline (cin, name);
 
-   if(thoitiet <= 0 || thoitiet >= 30 ){
-     cout << "Thời tiết rất xấu!\n";
-   }
-   else{
-     cout << "Thời tiết rất đẹp!\n";
-   }
+   // if(name.length() > 7) {  (Trả về độ dài của một chuỗi)          
+   //   cout << "Tên của bạn quá dài!";
+   // }
+   // else {
+   //  cout << "Welcome " << name;
+   // }
 
-   if(!sunny){
-      cout << "Ngoài trời rất nhiều mây";
-   }
-   else{
-      cout << "Ngoài trời rất nắng";
-   }
-   return 0;
+   // if(name.empty()){      (Kiểm tra xem chuỗi rỗng hay không)
+   //   cout << "Bạn chưa nhập tên!";
+   // }
+   // else {
+   //   cout << "Welcome " << name;
+   // }
+
+   // name.clear();        (Xóa chuỗi bạn nhập)
+   // cout << "Welcome " << name;
+
+   // name.append (" Nguyen");      (Nối chuỗi này với chuỗi khác)
+   // cout << "Hello "<< name;
+
+   // cout << name.at(1);    (Trả về một kí tự trong chuỗi) 
+
+   // name.insert (0, "@");    (Chèn kí tự khác vào ô chỉ định)
+   // cout << name;
+
+   // cout << name.find("B");    (Trả về vị trí kí tự được nhập đầu tiên)
+
+   name.erase(0, 6);
+   cout << name;
+
+    return 0;
 }
