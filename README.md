@@ -764,10 +764,300 @@ int main (){
    // name.clear();        (Xóa chuỗi bạn nhập)
    // cout << "Welcome " << name;
 
+   // name.append (" Nguyen");      (Nối chuỗi này với chuỗi khác)
+   // cout << "Hello "<< name;
+
+   // cout << name.at(1);    (Trả về một kí tự trong chuỗi) 
+
+   // name.insert (0, "@");    (Chèn kí tự khác vào ô chỉ định)
+   // cout << name;
+
+   // cout << name.find("B");    (Trả về vị trí kí tự được nhập đầu tiên)
+
    // name.erase(0, 6);     (xóa kí tự bắt đầu từ kí tự 0 và kết thúc ở kí tự 6)
    // cout << name;
+   
     return 0;
 }
 ```
+# 12.While loops
+**Cấu trúc**
+```
+while (condition) {
+  // code block to be executed
+}
+```
+**Ex**
+```c++
+#include <iostream>
+using namespace std;
+int main()
+{
+string name;
+while (name.empty()){
+    cout << "Enter your name: ";
+    getline(cin, name);
+}
+
+cout << "Hello " << name;
+return 0;
+}
+```
+# 13.Do while loops
+- Do some block of code first then repeat again if condition is true
+**Cấu trúc**
+```
+do {
+  // code block to be executed
+}
+while (condition);
+```
+
+**Ex**
+```c++
+#include <iostream>
+using namespace std;
+int main()
+{
+int number;
+do{
+    cout << "Nhập số dương: ";
+    cin >> number;
+}
+while(number < 0);
+
+cout << "Số dương là: " << number;
+
+return 0;
+}
+```
+
+# 14.Break and Continue
+- Break statement: break out of a loop 
+- continue statement: skip current iteration
+
+**Ex**
+1.
+```c++
+#include <iostream>
+using namespace std;
+int main(){
+    for (int i=1; i <= 10; i++){
+        if(i == 7){
+            break;
+        }
+        cout << i << '\n';
+    }
+
+return 0;
+}
+```
+
+2.
+```c++
+#include <iostream>
+using namespace std;
+int main(){
+    for (int i=1; i <= 10; i++){
+        if(i == 7){
+            continue;
+        }
+        cout << i << '\n';
+    }
+
+return 0;
+}
+```
+
+# 15.Nested loop (Vòng lặp lồng nhau)
+- Đặt vòng lặp đó bên trong vòng lặp khác
+
+**Ex**
+1.
+```c++
+#include <iostream>
+using namespace std;
+
+int main(){
+    for(int i = 1; i <=3; i++){
+        for(int j = 1; j <= 10; j++){
+            cout << j << " ";
+        }
+        cout << "\n";
+    }
+
+return 0;
+}
+```
+
+2.Tạo hàng và cột theo ý thích của bạn
+```c++
+#include <iostream>
+using namespace std;
+
+int main(){
+    int rows;
+    int columns;
+    char kytu;
+
+    cout << "Nhập số cột: ";
+    cin >> rows;
+
+    cout << "Nhập số hàng: ";
+    cin >> columns;
+
+    cout << "Nhập ký tự: ";
+    cin >> kytu;
+
+    for(int i = 1; i <= rows; i++){
+        for(int j = 1; j <= columns; j++){
+            cout << kytu;
+        }
+        cout << "\n";
+    }
+
+    return 0;
+}
+```
+# 16.Random number generator 
+- You can use the `rand()` function, found in the `<cstdlib>` library, to generate a random number:
+
+**Ex**
+```c++
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    srand(time(0));
+    int num = (rand() % 10) + 1;
+
+    cout << num;
+
+    return 0;
+}
+```
+# 17.Random event generator
+`#include <ctime>`
+
+```c++
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+int main()
+{
+    srand(time(0));
+    int rannum = rand() % 6;
+
+    switch (rannum)
+    {
+    case 1:
+        cout << "Bạn nhận được 1 cái nịt! \n";
+        break;
+    case 2:
+        cout << "Bạn nhận được 2 cái nịt! \n";
+        break;
+    case 3:
+        cout << "Bạn nhận được 3 cái nịt! \n";
+        break;
+    case 4:
+        cout << "Bạn nhận được 4 cái nịt! \n";
+        break;
+    case 5:
+        cout << "Bạn nhận được 5 cái nịt! \n";
+        break;
+    default:
+        cout << "Chúc bạn may mắn lần sau! \n";
+    }
+    
+    return 0;
+}
+```
+# 18.Number guessing game 
+```c++
+#include <iostream>
+using namespace std;
+
+int main(){
+    int num;
+    int guess;
+    int tries;
+
+    srand(time(NULL));
+    num = (rand() % 100) + 1;
+
+    cout << "******NUMBER GUESSING GAME******\n";
+    do{
+        cout << "Nhập số từ 1 đến 100: ";
+        cin >> guess;
+        tries++;
+
+        if(guess > num){
+            cout << "Quá lớn!\n";
+        }
+        else if(guess < num){
+            cout << "Quá nhỏ!\n";
+        }
+        else {
+            cout << "Correct - Số lần thử là: " << tries << '\n';
+        }
+    }
+    while(guess != num);
+
+    cout << "***************************************************";
+
+    return 0;
+}
+```
+# 19.User defined function
+- a block of reusable code (một khối mã có thể tái sử dụng)
+
+**Ex**
+
+```c++
+#include <iostream>
+using namespace std;
+
+void HappyBirthday(string name, int age){
+    cout << "Happy Birthday to " << name << '\n';
+    cout << "Happy Birthday to " << name << '\n';
+    cout << "Happy Birthday dear " << name << '\n';
+    cout << "Happy Birthday to " << name << '\n';
+    cout << "You are " << age << " years old!" << '\n';
+}
+
+int main(){
+    string name = "Bình";
+    int age = 18;
+    HappyBirthday(name, age);
+
+    return 0;
+}
+```
+# 20.Return Keyword
+- Return a value back to the spot where you called the encompassing function (Trả lại một giá trị về vị trí bạn đã gọi hàm)
+
+**Ex**
+```c++
+#include <iostream>
+using namespace std;
+
+string NameString(string name1, string name2){
+    return name1 + " " + name2;
+}
+
+int main(){
+    string FirstName = "Nguyễn";
+    string LastName = "Bình";
+    string FullName = NameString(FirstName, LastName);
+
+    cout << "Hello " << FullName;
+    
+    return 0;
+}
+```
+# 21.Overloaded Functions
+```c++
 
 
