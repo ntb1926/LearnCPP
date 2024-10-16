@@ -1059,5 +1059,145 @@ int main(){
 ```
 # 21.Overloaded Functions
 ```c++
+#include <iostream>
+using namespace std;
 
+void bakePizza(){
+    cout << "Here is your pizza" << '\n';
+}
+void bakePizza(string topping1, string topping2){
+    cout << "Here is your " << topping1 << " and " << topping2 <<" pizza" << '\n';
+}
 
+int main(){
+    bakePizza("sausage", "cheese");
+    
+    return 0;
+}
+```
+# 22.Variable Scope (Phạm vi biến)
+- `local variables` (Biến cục bộ): được khai báo bên trong 1 hàm hoặc 1 khối lệnh
+- `global variables` (Biến toàn cục): được khai báo bên ngoài tất cả các hàm
+
+**Ex**
+1.Local Variables
+```c++
+#include <iostream>
+using namespace std;
+
+void MyNum()
+{
+    int x = 3;
+    cout << x;
+}
+int main()
+{
+    MyNum();
+
+    return 0;
+}
+```
+2.Global Variables
+```c++
+#include <iostream>
+using namespace std;
+int x=5;
+void MyNum()
+{
+    int x = 3;
+    cout << x << "\n";
+}
+int main()
+{
+    MyNum();
+    cout << x << "\n";
+    
+    return 0;
+}
+```
+# 23.Banking Practice Program
+```c++
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+void showBalance(double balance)
+{
+    cout << "Số dư của bạn là: " << std::setprecision(3) << std::fixed << balance << "$" << '\n';
+}
+double Deposit()
+{
+    double amount;
+    cout << "Nhập số tiền bạn muốn gửi: ";
+    cin >> amount;
+    if (amount > 0)
+    {
+        return amount;
+    }
+    else
+    {
+        cout << "Giá trị không hợp lệ! \n ";
+        return 0;
+    }
+}
+
+double Withdraw(double balance)
+{
+    double amount;
+    cout << "Nhập số tiền bạn muốn rút: ";
+    cin >> amount;
+    if (amount > balance)
+    {
+        cout << "Số dư của bạn không đủ! \n ";
+        return 0;
+    }
+    else if (amount < 0)
+    {
+        cout << "Giá trị không hợp lệ! \n";
+        return 0;
+    }
+    else
+    {
+        return amount;
+    }
+}
+
+int main()
+{
+    double balance = 123.092;
+    int choice = 0;
+
+    do
+    {
+        cout << "************************** \n";
+        cout << "1. Hiện Số Dư của bạn \n";
+        cout << "2.Nạp Tiền \n";
+        cout << "3.Rút tiền \n";
+        cout << "4.Thoát \n";
+        cout << "************************** \n";
+        cin >> choice;
+
+        switch (choice)
+        {
+        case 1:
+            showBalance(balance);
+            break;
+        case 2:
+            balance = balance + Deposit();
+            showBalance(balance);
+            break;
+        case 3:
+            balance = balance - Withdraw(balance);
+            showBalance(balance);
+            break;
+        case 4:
+            cout << "Cảm ơn! \n";
+            break;
+        default:
+            cout << "Không hợp lệ!\n";
+        }
+    } while (choice != 4);
+
+    return 0;
+}
+```
